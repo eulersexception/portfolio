@@ -1,10 +1,13 @@
-import { AppProps } from "next/app";
-import "../styles/globals.css";
+import "@fontsource/fira-code";
+
 import { ChakraProvider } from "@chakra-ui/react";
+import { AppProps } from "next/app";
+
+import theme from "../lib/theme";
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <Component {...pageProps} />
     </ChakraProvider>
   );
