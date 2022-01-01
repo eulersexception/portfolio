@@ -20,9 +20,6 @@ const theme = extendTheme({
         lineHeight: "tall",
         bg: mode("#9FB3A8", "#3B423E")(props),
       },
-      div: {
-        bg: mode("#9FB3A8", "#3B423E")(props),
-      },
       a: {
         color: mode("black", "white")(props),
       },
