@@ -35,9 +35,9 @@ const theme = extendTheme({
     },
   },
   fonts: {
-    heading: "Fira Code",
-    body: "Fira Code",
-    mono: "Fira Code",
+    heading: "Montserrat",
+    body: "Montserrat",
+    mono: "Montserrat",
   },
   styles: {
     global: (props) => ({
