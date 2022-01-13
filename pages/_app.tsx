@@ -1,4 +1,5 @@
 import "@fontsource/montserrat";
+import "@fontsource/pacifico";
 
 import { ChakraProvider } from "@chakra-ui/react";
 import { AppProps } from "next/app";

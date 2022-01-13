@@ -1,13 +1,16 @@
-import { Box, Grid, GridItem, Heading, VStack } from "@chakra-ui/react";
-import { motion, useViewportScroll } from "framer-motion";
-import About from "../components/home/About";
-import BurgerMenu from "../components/home/BurgerMenu";
+import { Box, Flex } from "@chakra-ui/react";
+import Headline from "../components/home/Headline";
+import { BurgerMenu } from "../components/menu/BurgerMenu";
 
 export default function Home() {
   return (
-    <Box paddingTop={20} maxW="8xl" mx="auto">
-      <BurgerMenu />
-      <About />
-    </Box>
+    <Flex maxW="8xl" mx="auto">
+      <Box marginTop={20}>
+        <BurgerMenu />
+      </Box>
+      <Box>
+        <Headline />
+      </Box>
+    </Flex>
   );
 }
