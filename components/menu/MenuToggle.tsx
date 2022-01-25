@@ -1,26 +1,41 @@
-import * as React from "react";
-import { motion } from "framer-motion";
 import { Button } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+import * as React from "react";
 
 const Path = (props) => (
   <motion.path
     fill="transparent"
-    strokeWidth="3"
+    strokeWidth={3.5}
     stroke="white"
     strokeLinecap="round"
     color="white"
     rounded="md"
     bg="#70FFE5"
     border="rgba(160, 255, 238, 0.75)"
-    borderWidth="5px"
-    boxShadow="0px 0px 40px rgba(132, 255, 112, 0.75)"
+    borderwidth="5px"
+    boxshadow="0px 0px 40px rgba(132, 255, 112, 0.75)"
     padding={2}
     {...props}
   />
 );
 
 export const MenuToggle = ({ toggle }) => (
-  <button onClick={toggle}>
+  <Button
+    onClick={toggle}
+    outline="none"
+    border="none"
+    cursor="pointer"
+    position="absolute"
+    top="37px"
+    left="36px"
+    width="50px"
+    height="50px"
+    borderRadius="50%"
+    bg="transparent"
+    _hover={{ outline: "none" }}
+    _focus={{ outline: "none" }}
+    padding={0}
+  >
     <svg width="100%" height="60%" viewBox="0 0 23 23">
       <Path
         color="#70FFE5"
@@ -44,5 +59,5 @@ export const MenuToggle = ({ toggle }) => (
         }}
       />
     </svg>
-  </button>
+  </Button>
 );

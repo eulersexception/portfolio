@@ -1,41 +1,34 @@
-import { Box, Flex, Heading, VStack } from "@chakra-ui/react";
+import { VStack } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import AnimatedCharacters from "../ui/AnimatedCharacters";
+import ContactButton from "../ui/ContactButton";
+import NeonText from "../ui/NeonText";
 
 export default function Headline() {
   const container = {
     visible: {
       transition: {
-        staggerChildren: 0.025,
+        staggerChildren: 0.25,
       },
     },
   };
 
   return (
-    <Flex align="center" justify="center" h="100vh">
-      <VStack>
-        <Box padding={200}>
-          <motion.div
-            initial="hidden"
-            // animate="visible"
-            animate={"visible"}
-            variants={container}
-          >
-            <Heading
-              padding={12}
-              orientation="vertical"
-              as="h1"
-              size="2xl"
-              fontFamily="Pacifico"
-              letterSpacing="0.3em"
-            >
-              {[{ text: "SoWeSo", color: "#00FFD1" }].map((item, index) => {
-                return <AnimatedCharacters {...item} key={index} />;
-              })}
-            </Heading>
-          </motion.div>
-        </Box>
-      </VStack>
-    </Flex>
+    <VStack spacing={6}>
+      <motion.div initial="hidden" animate="visible" variants={container}>
+        <NeonText
+          orientation="vertical"
+          as="h1"
+          size="2xl"
+          overflow="hidden"
+          padding={6}
+          margin={-6}
+          marginRight={[-10, -12, -14, -16]}
+        >
+          <AnimatedCharacters text="SoWeSo" />
+        </NeonText>
+      </motion.div>
+      <ContactButton text="Get To Know Me" />
+    </VStack>
   );
 }

@@ -1,5 +1,6 @@
-import * as React from "react";
+import { Box } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import * as React from "react";
 
 const variants = {
   open: {
@@ -18,7 +19,7 @@ const variants = {
   },
 };
 
-const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"];
+const colors = ["#4400FF", "#7700FF", "#9C1AFF", "#D309E1", "#FF008C" ];
 
 export const MenuItem = ({ i }) => {
   const style = { border: `2px solid ${colors[i]}` };
@@ -28,8 +29,21 @@ export const MenuItem = ({ i }) => {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
     >
-      <div className="iconPlaceholder" style={style} />
-      <div className="textPlaceholder" style={style} />
+      <Box 
+        width="40px"
+        height="40px"
+        borderRadius="50%"
+        flex="40px 0"
+        marginRight="20px"
+        style={style} 
+      />
+      <Box 
+        borderRadius="5px"
+        width="200px"
+        height="20px"
+        flex="1"
+        style={style} 
+      />
     </motion.li>
   );
 };

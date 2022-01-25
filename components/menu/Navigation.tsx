@@ -1,22 +1,28 @@
-import * as React from "react";
+import { VStack } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { MenuItem } from "./MenuItem";
+import * as React from "react";
+import NavLink from "../ui/NavLink";
 
 const variants = {
   open: {
-    transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+    opacity: 1,
   },
   closed: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+    opacity: 0,
   },
 };
 
 export const Navigation = () => (
-  <motion.ul variants={variants}>
-    {itemIds.map((i) => (
-      <MenuItem i={i} key={i} />
-    ))}
-  </motion.ul>
+  <VStack
+    as={motion.ul}
+    spacing={4}
+    alignItems={["center", null, "start"]}
+    variants={variants}
+  >
+    <NavLink href="/">Home</NavLink>
+    <NavLink href="/">About</NavLink>
+    <NavLink href="/">Service</NavLink>
+    <NavLink href="/">Stack</NavLink>
+    <NavLink href="/">Blog</NavLink>
+  </VStack>
 );
-
-const itemIds = [0, 1, 2, 3, 4];
