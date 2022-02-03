@@ -8,6 +8,7 @@ const config: ThemeConfig = {
 
 const theme = extendTheme({
   config,
+  components: {},
   colors: {
     mossgreen: {
       50: "#E3FCEA",

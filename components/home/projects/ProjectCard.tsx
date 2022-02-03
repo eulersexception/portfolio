@@ -19,12 +19,13 @@ const ProjectCard = ({ project }: IProjectCardProps) => (
         </Heading>
         {project.links.map((link) => (
           <Link
+            key={link.href}
             border="2px solid rgba(191, 255, 244)"
             borderRadius="md"
             py={1}
             px={2}
             textTransform="uppercase"
-            fontSize={["smaller", null, "small", "sm"]}
+            fontSize="xs"
             _hover={{
               boxShadow:
                 "0px 0px 10px rgba(191, 255, 244, 0.85), 0px 0px 15px rgba(207, 255, 247, 0.85)",
