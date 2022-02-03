@@ -15,10 +15,10 @@ import { useForm } from "react-hook-form";
 import {
   schema as contactFormSchema,
   SchemaType as ContactFormSchemaType,
-} from "../../lib/forms/contact";
-import NeonText from "../ui/NeonText";
+} from "../../../lib/forms/contact";
+import NeonText from "../../ui/NeonText";
 
-function ContactForm() {
+function ContactForm({ setMessageSent }) {
   const { colorMode } = useColorMode();
   const buttonColor = useColorModeValue("black", "grey.300");
   const {
@@ -43,8 +43,9 @@ function ContactForm() {
     const data = await res.json();
 
     if (data.success) {
-      alert("Mail sent!");
+      setMessageSent();
     } else if (data.errors.sendMail) {
+      // TODO: implement error handling
     } else {
       Object.entries(data.errors).forEach(([key, error]) => {
         setError(key as keyof ContactFormSchemaType, error);

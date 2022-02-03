@@ -8,9 +8,11 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
+import { useEffect, useState } from "react";
 import About from "../components/home/About";
 import Blog from "../components/home/blog/Blog";
-import ContactForm from "../components/home/ContactForm";
+import Confirmation from "../components/home/contact/Confirmation";
+import ContactForm from "../components/home/contact/ContactForm";
 import Headline from "../components/home/Headline";
 import Projects from "../components/home/projects/Projects";
 import Timeline from "../components/home/timeline/Timeline";
@@ -18,6 +20,11 @@ import NeonText from "../components/ui/NeonText";
 
 export default function Home() {
   const bgColor = useColorModeValue("#FFA6DB", "#200039");
+  const [messageSent, setMessageSent] = useState(false);
+
+  useEffect(() => {
+    setMessageSent(true);
+  }, [setMessageSent]);
 
   return (
     <>
@@ -71,7 +78,11 @@ export default function Home() {
       </Flex>
       <Flex pt={20} align="center" minH="100vh" id="contact">
         <Container maxW="container.xl" centerContent>
-          <ContactForm />
+          {messageSent ? (
+            <ContactForm setMessageSent={setMessageSent} />
+          ) : (
+            <Confirmation />
+          )}
         </Container>
       </Flex>
       <Box
@@ -93,7 +104,12 @@ export default function Home() {
           <HStack alignSelf="stretch" justify="space-between" flex="1" pt={96}>
             <NeonText fontSize="xl">Powered by Jenyus</NeonText>
             <NextLink href="/imprint" passHref>
-              <Link href="imprint">
+              <Link
+                href="imprint"
+                _hover={{
+                  textDecoration: "none",
+                }}
+              >
                 <NeonText fontSize="lg">Imprint</NeonText>
               </Link>
             </NextLink>
