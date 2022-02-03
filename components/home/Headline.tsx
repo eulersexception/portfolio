@@ -42,13 +42,6 @@ export default function Headline() {
               "0px 0px 30px #0BFF4F",
             ],
           }}
-          transition={{
-            repeat: Infinity,
-            repeatDelay: 5,
-            duration: 0.3,
-            ease: "linear",
-            times: [0.15, 0.2, 0.35, 0.4, 0.55, 0.6, 0.75, 0.8, 0.95, 1],
-          }}
         >
           <AnimatedCharacters text="SoWeSo" />
         </MotionHeading>
