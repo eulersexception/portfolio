@@ -1,30 +1,14 @@
-import {
-  Box,
-  Container,
-  Flex,
-  HStack,
-  Link,
-  useColorModeValue,
-  VStack,
-} from "@chakra-ui/react";
-import NextLink from "next/link";
-import { useEffect, useState } from "react";
+import { Container, Flex, useColorModeValue } from "@chakra-ui/react";
 import About from "../components/home/About";
 import Blog from "../components/home/blog/Blog";
-import Confirmation from "../components/home/contact/Confirmation";
-import ContactForm from "../components/home/contact/ContactForm";
+import ContactSection from "../components/home/contact/ContactSection";
+import Footer from "../components/home/Footer";
 import Headline from "../components/home/Headline";
 import Projects from "../components/home/projects/Projects";
 import Timeline from "../components/home/timeline/Timeline";
-import NeonText from "../components/ui/NeonText";
 
 export default function Home() {
   const bgColor = useColorModeValue("#FFA6DB", "#200039");
-  const [messageSent, setMessageSent] = useState(false);
-
-  useEffect(() => {
-    setMessageSent(true);
-  }, [setMessageSent]);
 
   return (
     <>
@@ -77,45 +61,9 @@ export default function Home() {
         </Container>
       </Flex>
       <Flex pt={20} align="center" minH="100vh" id="contact">
-        <Container maxW="container.xl" centerContent>
-          {messageSent ? (
-            <ContactForm setMessageSent={setMessageSent} />
-          ) : (
-            <Confirmation />
-          )}
-        </Container>
+        <ContactSection />
       </Flex>
-      <Box
-        as="footer"
-        display="flex"
-        flexDirection="column"
-        bg="gray.900"
-        h="lg"
-        w="100%"
-        p={[8, null, 16]}
-        background={`radial-gradient(70% 30% at 50% 90%, #391f6e, #3d2061, #420670, #4b1b70, ${bgColor})`}
-      >
-        <VStack
-          justify="space-between"
-          align="center"
-          flex="1"
-          spacing={[8, null, 16]}
-        >
-          <HStack alignSelf="stretch" justify="space-between" flex="1" pt={96}>
-            <NeonText fontSize="xl">Powered by Jenyus</NeonText>
-            <NextLink href="/imprint" passHref>
-              <Link
-                href="imprint"
-                _hover={{
-                  textDecoration: "none",
-                }}
-              >
-                <NeonText fontSize="lg">Imprint</NeonText>
-              </Link>
-            </NextLink>
-          </HStack>
-        </VStack>
-      </Box>
+      <Footer bgColor={bgColor} />
     </>
   );
 }

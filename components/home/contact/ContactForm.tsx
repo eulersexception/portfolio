@@ -18,7 +18,15 @@ import {
 } from "../../../lib/forms/contact";
 import NeonText from "../../ui/NeonText";
 
-function ContactForm({ setMessageSent }) {
+interface IContactFormProps {
+  setMessageSent: (messageSent: boolean) => void;
+  setError: (error: string) => void;
+}
+
+function ContactForm({
+  setMessageSent,
+  setError: setErrorMsg,
+}: IContactFormProps) {
   const { colorMode } = useColorMode();
   const buttonColor = useColorModeValue("black", "grey.300");
   const {
@@ -43,9 +51,9 @@ function ContactForm({ setMessageSent }) {
     const data = await res.json();
 
     if (data.success) {
-      setMessageSent();
+      setMessageSent(true);
     } else if (data.errors.sendMail) {
-      // TODO: implement error handling
+      setErrorMsg(data.errors.sendMail);
     } else {
       Object.entries(data.errors).forEach(([key, error]) => {
         setError(key as keyof ContactFormSchemaType, error);
