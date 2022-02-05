@@ -2,6 +2,11 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 import React from "react";
 import NeonText from "../ui/NeonText";
 
+const aboutText = `My name is Bahadir and I'm a code enthusiast with a strong background in insurance, a faible for automation, a proven track record in agile development and a passion for challenges. Besides the technological skills, I was able to gain experience across different industries of any size, i.e. insurance, automotive, e-commerce, consulting, output management systems. 
+
+
+And yes, I can also do the music stuff!`;
+
 function About() {
   return (
     <Flex
@@ -22,16 +27,8 @@ function About() {
           maxW={[null, null, "lg"]}
           p={[4, null, 6, null, 8]}
         >
-          <Text lineHeight={6}>
-            My name is Bahadir and I'm a code enthusiast with a strong
-            background in insurance, a faible for automation, a proven track
-            record in agile development and a passion for challenges. Besides
-            the technological skills, I was able to gain experience across
-            different industries of any size, i.e. insurance, automotive,
-            e-commerce, consulting, output management systems.
-            <br />
-            <br />
-            And yes, I can also do the music stuff!
+          <Text lineHeight={6} whiteSpace="pre-wrap">
+            {aboutText}
           </Text>
         </Box>
       </Flex>

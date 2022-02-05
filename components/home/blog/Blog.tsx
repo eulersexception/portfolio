@@ -22,7 +22,7 @@ function Blog() {
         <BlogCard />
       </Flex>
 
-      <Link href="/blog">
+      <Link href="/blog" passHref>
         <GlowLink alignSelf="end">
           <HStack>
             <Text>View More</Text>

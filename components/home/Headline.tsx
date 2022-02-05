@@ -3,8 +3,6 @@ import { motion } from "framer-motion";
 import AnimatedCharacters from "../ui/AnimatedCharacters";
 import ContactButton from "../ui/ContactButton";
 
-const partialMotionProps = ["transition"];
-
 const MotionHeading = motion<HeadingProps>(Heading);
 
 export default function Headline() {

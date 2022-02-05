@@ -5,8 +5,6 @@ import {
   FormHelperText,
   Input,
   Textarea,
-  useColorMode,
-  useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -27,8 +25,6 @@ function ContactForm({
   setMessageSent,
   setError: setErrorMsg,
 }: IContactFormProps) {
-  const { colorMode } = useColorMode();
-  const buttonColor = useColorModeValue("black", "grey.300");
   const {
     register,
     handleSubmit,

@@ -17,9 +17,10 @@ const ContactButton = ({ text }: IContactButtonProps) => {
       fontSize={["sm", null, "md", "lg"]}
       _hover={{ bg: "pink.400", boxShadow: "0 0 10px white" }}
       fontWeight="extrabold"
-      children={text}
       href="#contact"
-    />
+    >
+      {text}
+    </Link>
   );
 };
 
