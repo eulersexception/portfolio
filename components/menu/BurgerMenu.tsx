@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, useBreakpointValue } from "@chakra-ui/react";
 import { AnimatePresence, motion, useCycle } from "framer-motion";
 import React, { useEffect } from "react";
 import useDimensions from "react-use-dimensions";
@@ -6,16 +6,20 @@ import { MenuToggle } from "./MenuToggle";
 import { Navigation } from "./Navigation";
 
 const sidebar = {
-  open: (height = 50) => ({
-    clipPath: `circle(${height * 2 + 50}px at 60px 60px)`,
+  open: ({ height = 50, isMobile = false }) => ({
+    clipPath: `circle(${height * 2 + 50}px at ${
+      isMobile ? "40px 40px" : "60px 60px"
+    })`,
     transition: {
       type: "spring",
       stiffness: 20,
       restDelta: 2,
     },
   }),
-  closed: () => ({
-    clipPath: "circle(30px at 60px 60px)",
+  closed: ({ isMobile = false }) => ({
+    clipPath: `circle(${isMobile ? "23px" : "30px"} at ${
+      isMobile ? "40px 40px" : "60px 60px"
+    })`,
     transition: {
       delay: 0.5,
       type: "spring",
@@ -28,6 +32,7 @@ const sidebar = {
 export const BurgerMenu = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const [containerRef, { height }] = useDimensions();
+  const isMobile = useBreakpointValue([true, null, false]);
 
   useEffect(() => {
     if (isOpen) {
@@ -60,7 +65,7 @@ export const BurgerMenu = () => {
         as={motion.nav}
         initial={false}
         animate={isOpen ? "open" : "closed"}
-        custom={height}
+        custom={{ height, isMobile }}
         variants={sidebar}
         ref={containerRef}
         zIndex={50}

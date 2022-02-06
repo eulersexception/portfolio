@@ -26,10 +26,10 @@ export const MenuToggle = ({ toggle }) => (
     border="none"
     cursor="pointer"
     position="absolute"
-    top="37px"
-    left="36px"
-    width="50px"
-    height="50px"
+    top={["22px", null, "37px"]}
+    left={["21px", null, "36px"]}
+    width={["40px", null, "50px"]}
+    height={["40px", null, "50px"]}
     borderRadius="50%"
     bg="transparent"
     _hover={{ outline: "none" }}
